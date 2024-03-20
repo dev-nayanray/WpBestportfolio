@@ -1,0 +1,70 @@
+/*
+Theme Name: Best Portfolio
+Theme URI: Your Theme URI (if applicable)
+Description: A clean and professional portfolio theme for showcasing your work.
+Author: Nayan Ray
+Author URI: https://learnwithnayanray.github.io/ (e.g., your personal website or portfolio)
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: best-portfolio
+Tags: portfolio, photography, creative
+*/
+
+/* Reset and base styles */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+/* Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Your custom styles */
+/* Add your own custom styles below this line */
+/* CSS for horizontal menu with hover effect */
+ .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(0, 1fr)); /* Adjust as needed */
+            gap: 4rem; /* Adjust the gap between items */
+            margin: 100px; /* Margin of 100 pixels */
+            justify-content: center; /* Center align items horizontally */
+            align-items: center; /* Center align items vertically */
+        }
+
+        /* Adjust grid columns for different screen sizes */
+        @media (min-width: 640px) {
+            .grid-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    width: 70%; /* Adjust the width of the content area */
+}
+
+.sidebar {
+    width: 25%; /* Adjust the width of the sidebar */
+}
+.grid-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.sm\:-top-80 {
+        top: 1rem;
+    }
