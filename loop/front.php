@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Blog Loop
+ * Template Name: front Loop
  */
 ?>
 <!DOCTYPE html>

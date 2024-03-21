@@ -40,62 +40,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-12">
                         <div class="page-wrapper">
-                            <div class="blog-custom-build">
-                                <?php
-                                if (have_posts()) :
-                                    while (have_posts()) : the_post();
-                                        // Start the loop
-                                        ?>
-                                        <div id="post-<?php the_ID(); ?>" <?php post_class('blog-box wow fadeIn'); ?>>
-                                            <div class="post-media">
-                                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                                    <?php the_post_thumbnail('large', array('class' => 'img-fluid')); ?>
-                                                    <div class="hovereffect">
-                                                        <span></span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="blog-meta big-meta text-center">
-                                                <div class="post-sharing">
-                                                    <?php echo do_shortcode('[addtoany]'); ?>
-                                                </div>
-                                                <h4><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
-                                                <div class="entry-content">
-                                                    <?php the_content(); ?>
-                                                </div>
-                                                <small><?php the_category(', '); ?></small>
-                                                <small><?php the_time('j F, Y'); ?></small>
-                                                <small><?php the_author_posts_link(); ?></small>
-                                                <small><i class="fa fa-eye"></i> <?php echo get_post_meta(get_the_ID(), 'post_views_count', true); ?></small>
-                                            </div><!-- end meta -->
-                                        </div><!-- end blog-box -->
-                                        <?php
-                                    endwhile;
-                                else :
-                                    echo __('No posts found', 'text-domain');
-                                endif;
-                                ?>
-                            </div><!-- end blog-custom-build -->
-
-                            <hr class="invis">
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <?php the_posts_pagination(); ?>
-                                </div><!-- end col -->
-                            </div><!-- end row -->
-                        </div><!-- end page-wrapper -->
-                    </div><!-- end col -->
-
-                    <div class="col-lg-4 col-md-12">
-                        <?php get_sidebar(); ?>
-                    </div><!-- end col -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </section><!-- end section -->
-
-   <section class="section lb">
-            <div class="container">
+                            <div class="container">
                 <div class="post-loop-container">
                     <?php
                     // Custom query to fetch posts
@@ -119,13 +64,70 @@
                     <?php
                         endwhile;
                     else :
-                        echo __('No posts found', 'text-domain');
+                        echo __('No posts found', 'wp-best-portfolio');
                     endif;
                     wp_reset_postdata(); // Reset post data
                     ?>
                 </div>
+            </div>
+                            <!-- end blog-custom-build -->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    
+
+
+<nav aria-label="Page navigation example">
+  <ul class="flex items-center -space-x-px h-10 text-base">
+    <li>
+      <a href="#" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        <span class="sr-only">Previous</span>
+        <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+    </li>
+    <li>
+      <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+    </li>
+    <li>
+      <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+    </li>
+    <li>
+      <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+    </li>
+    <li>
+      <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+    </li>
+    <li>
+      <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        <span class="sr-only">Next</span>
+        <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+                                </div><!-- end col -->
+                            </div><!-- end row -->
+                        </div><!-- end page-wrapper -->
+                        
+                    </div><!-- end col -->
+
+                    <div class="col-lg-4 col-md-12">
+                        <?php get_sidebar(); ?>
+                    </div><!-- end col -->
+                </div><!-- end row -->
             </div><!-- end container -->
         </section><!-- end section -->
+
+   
 
 
         <?php get_footer(); ?>

@@ -1,13 +1,13 @@
 /*
-Theme Name: Best Portfolio
+Theme Name: WP Best Portfolio
 Theme URI: Your Theme URI (if applicable)
 Description: A clean and professional portfolio theme for showcasing your work.
 Author: Nayan Ray
-Author URI: https://learnwithnayanray.github.io/ (e.g., your personal website or portfolio)
+Author URI: https://learnwithnayanray.github.io/
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: best-portfolio
+Text Domain: wp-best-portfolio
 Tags: portfolio, photography, creative
 */
 
@@ -23,6 +23,35 @@ Tags: portfolio, photography, creative
 /* Your custom styles */
 /* Add your own custom styles below this line */
 /* CSS for horizontal menu with hover effect */
+
+/* Add hover effect to menu links */
+.hidden.lg\:flex.lg\:gap-x-12.items-center a:hover {
+  background-color: #f0f0f0; /* Adjust the background color on hover as needed */
+}
+
+/* Style for the menu button */
+.hidden.lg\:flex .lg\:hidden button {
+  color: #333; /* Adjust the color as needed */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add hover effect to the menu button */
+.hidden.lg\:flex .lg\:hidden button:hover {
+  background-color: #f0f0f0; /* Adjust the background color on hover as needed */
+}
+.container{
+    width: 1920px;
+}
+.post-loop-container{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.post-loop-container .md\:max-w-xl {
+    max-width: 100rem;
+    margin-top: 1rem;
+}
  .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(0, 1fr)); /* Adjust as needed */
@@ -50,13 +79,15 @@ Tags: portfolio, photography, creative
                 grid-template-columns: repeat(4, minmax(0, 1fr));
             }
         }
+}
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .content {
-    width: 70%; /* Adjust the width of the content area */
+    width: 70%;
+
 }
 
 .sidebar {
@@ -68,3 +99,44 @@ Tags: portfolio, photography, creative
 .sm\:-top-80 {
         top: 1rem;
     }
+
+
+
+.max-w-sm {
+    max-width: 40rem; /* Adjust the value as needed */
+    width: 100%; /* Ensures the container takes up the full width of its parent */
+    margin-left: auto; /* Centers the container horizontally */
+    margin-right: auto; /* Centers the container horizontally */
+}
+.hidden li{
+    list-style: none;
+
+}
+.hidden li a{
+    text-decoration: none;
+    
+    
+}
+/*.hidden li a span{
+    color: #151616;
+    height: 30px;
+    font-size: 22px;
+}*/
+
+
+.sec-main{
+    border: 2px solid white;
+    width: 100%;
+    max-width: 1920px;
+    height: 400px;
+}
+.text-center{
+    padding-top: 100px;
+    z-index: 1200;
+}
+.text-center h1{
+    color: dodgerblue;
+}
+.text-center p{
+    color: dodgerblue;
+}

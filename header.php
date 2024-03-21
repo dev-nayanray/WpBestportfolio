@@ -37,14 +37,26 @@
 <body <?php body_class(); ?>>
   
 <div class="bg-white">
-  <header class="absolute inset-x-0 top-0 z-50">
-    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+  <header class="absolute inset-x-0 top-0 z-50" >
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global" style="height:150px;line-height: 100px;">
       <div class="flex lg:flex-1">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="-m-1.5 p-1.5">
-          <span class="sr-only"><?php bloginfo( 'name' ); ?></span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
-        </a>
-      </div>
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="-m-1.5 p-1.5">
+        <span class="sr-only"><?php bloginfo( 'name' ); ?></span>
+        <?php
+        // Check if a custom logo is set
+        if ( has_custom_logo() ) {
+            // Display the custom logo
+            the_custom_logo();
+        } else {
+            // If no custom logo is set, display a default image
+            ?>
+            <img class="h-60 w-100" src="<?php echo esc_url( get_template_directory_uri() ); ?>/path/to/default/logo.png" alt="<?php bloginfo( 'name' ); ?>">
+            <?php
+        }
+        ?>
+    </a>
+</div>
+
       <div class="flex lg:hidden">
         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
           <span class="sr-only">Open main menu</span>
@@ -103,7 +115,7 @@
       ?>
     </div>
     <div class="py-6">
-      <a href="<?php echo esc_url( wp_login_url() ); ?>" class="block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"><?php _e( 'Log in', 'best-portfolio' ); ?></a>
+      <a href="<?php echo esc_url( wp_login_url() ); ?>" class="block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 "><?php _e( 'Log in', 'best-portfolio' ); ?></a>
     </div>
   </div>
 </div>
@@ -111,4 +123,7 @@
     </div>
   </header>
 
- </div>
+  <span style="height:50px; ">
+     <br>    
+  </span>
+

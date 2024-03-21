@@ -1,13 +1,12 @@
 
 <?php get_header();?>
-
-<div class="relative isolate px-6 pt-14 lg:px-8">
+<div class="relative isolate px-6 pt-14 lg:px-8 main-sec">
 
     <!-- Background Slider -->
     
 
-    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-35 relative">
-      <div id="background-slider" class="absolute inset-x-0 -top-80 mt-0 -z-1000 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true" style="height: 400px; ">
+    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-35 relative sec-main">
+      <div id="background-slider" class="absolute inset-x-0 -top-80 mt-0 -z-1000 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true" style="height: 350px; border: 5px solid whitesmoke; ">
         <?php
         // The Query
         $args = array(
@@ -22,7 +21,27 @@
             while ($query->have_posts()) : $query->the_post();
                 $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the featured image URL
         ?>
-                <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-<?php echo ($query->current_post === 0) ? '100' : '0'; ?> bg-center bg-cover bg-no-repeat" style="background-image: url('<?php echo esc_url($featured_image_url); ?>');"></div>
+                <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-<?php echo ($query->current_post === 0) ? '100' : '0'; ?> bg-center bg-cover bg-no-repeat" style="background-image: url('<?php echo esc_url($featured_image_url); ?>');">
+                    <div class="text-center" >
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                <?php bloginfo('name'); ?> -
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-gray-600"> <?php bloginfo('description'); ?></p>
+            <div class="mt-10 flex items-center justify-center gap-x-6">
+                <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </div>
+        <!-- Your content here -->
+        
+        
+</div>
+    
+
+
+
+             
         <?php
             endwhile;
             // Restore original Post Data
@@ -33,26 +52,7 @@
         endif;
         ?>
     
-
-        <!-- Your content here -->
-        <div class="hidden sm:mb-6 sm:flex sm:justify-center">
-            <!-- Add your content here -->
-        </div>
-        <div class="text-center">
-            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                <?php bloginfo('name'); ?> -
-            </h1>
-            <p class="mt-6 text-lg leading-8 text-gray-600"> <?php bloginfo('description'); ?></p>
-            <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
-            </div>
-        </div>
-
-    </div>
-
 </div>
-
 <script>
     // JavaScript code for background image slider
     var currentSlide = 0;
@@ -89,7 +89,7 @@
        
 <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
     <div class="flex items-center justify-between mb-4">
-        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h5>
+        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Our Team</h5>
         <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
             View all
         </a>
@@ -162,7 +162,7 @@
             </div>
           </div>
 
-          <a href="#" class="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">Shop Collection</a>
+          <a href="http://127.0.0.1/Test/team-members/" class="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">Meet Our Team</a>
         </div>
       </div>
     </div>
@@ -246,6 +246,7 @@ function display_products() {
                 <h3 class="mt-4 text-sm text-gray-700"><?php the_title(); ?></h3>
                 <p class="mt-1 text-lg font-medium text-gray-900">100<?php echo '$' . get_post_meta(get_the_ID(), 'price', true); ?></p>
               </a>
+          </div>
           <?php
             endwhile;
             wp_reset_postdata(); // Reset post data
@@ -333,7 +334,7 @@ function display_products() {
   </div>
 </div>
 
-
+    
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     <?php
@@ -394,23 +395,50 @@ function display_products() {
   <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
   <div class="mx-auto max-w-2xl lg:max-w-4xl">
     <img class="mx-auto h-12" src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg" alt="">
-    <figure class="mt-10">
-      <blockquote class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-        <p>“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”</p>
-      </blockquote>
-      <figcaption class="mt-10">
-        <img class="mx-auto h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-        <div class="mt-4 flex items-center justify-center space-x-3 text-base">
-          <div class="font-semibold text-gray-900">Judith Black</div>
-          <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
-            <circle cx="1" cy="1" r="1" />
-          </svg>
-          <div class="text-gray-600">CEO of Workcation</div>
-        </div>
-      </figcaption>
-    </figure>
+    <div id="testimonialSlider" class="mt-10 swiper-container">
+      <div class="swiper-wrapper">
+        <?php
+        $args = array(
+            'post_type' => 'testimonial',
+            'posts_per_page' => -1,
+        );
+        $testimonials = new WP_Query($args);
+        if ($testimonials->have_posts()) :
+            while ($testimonials->have_posts()) : $testimonials->the_post(); ?>
+              <div class="swiper-slide">
+                <blockquote class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                  <?php the_content(); ?>
+                </blockquote>
+                <figcaption class="mt-10">
+                  <img class="mx-auto h-10 w-10 rounded-full" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+                  <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+                    <div class="font-semibold text-gray-900"><?php the_title(); ?></div>
+                    <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
+                      <circle cx="1" cy="1" r="1" />
+                    </svg>
+                    <div class="text-gray-600"><?php echo get_post_meta(get_the_ID(), 'testimonial_position', true); ?></div>
+                  </div>
+                </figcaption>
+              </div>
+        <?php
+            endwhile;
+            wp_reset_postdata();
+        endif;
+        ?>
+      </div>
+      <!-- Add navigation buttons if required -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
   </div>
 </section>
+
+
+
+
+
+
+
 <div class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <h2 class="text-center text-lg font-semibold leading-8 text-gray-900">Trusted by the world’s most innovative teams</h2>
