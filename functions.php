@@ -1,4 +1,8 @@
+
 <?php
+// Include TGM Plugin Activation
+require_once get_template_directory() . '/inc/tgmpa/tgmpa-config.php';
+
 // Enqueue styles and scripts
 function best_portfolio_enqueue_scripts() {
     // Enqueue main stylesheet
@@ -30,6 +34,12 @@ add_action('after_setup_theme', 'best_portfolio_theme_supports');
 function register_my_menu() {
     register_nav_menu('primary-menu', __('Primary Menu'));
 }
+register_nav_menus(
+    array(
+        'primary-menu' => esc_html__('Primary Menu', 'wp-best-portfolio'),
+        'user-menu' => esc_html__('User Menu', 'wp-best-portfolio'), // Add this line to register the user menu
+    )
+);
 add_action('after_setup_theme', 'register_my_menu');
 
 // Add custom image sizes for cropped image

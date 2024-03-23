@@ -24,6 +24,10 @@ Tags: portfolio, photography, creative
 /* Add your own custom styles below this line */
 /* CSS for horizontal menu with hover effect */
 
+html {
+    margin-top: 2px !important;
+}
+
 /* Add hover effect to menu links */
 .hidden.lg\:flex.lg\:gap-x-12.items-center a:hover {
   background-color: #f0f0f0; /* Adjust the background color on hover as needed */
@@ -54,7 +58,7 @@ Tags: portfolio, photography, creative
 }
  .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(0, 1fr)); /* Adjust as needed */
+            grid-template-columns: repeat(3, minmax(0, 1fr)); /* Adjust as needed */
             gap: 4rem; /* Adjust the gap between items */
             margin: 100px; /* Margin of 100 pixels */
             justify-content: center; /* Center align items horizontally */
@@ -64,22 +68,24 @@ Tags: portfolio, photography, creative
         /* Adjust grid columns for different screen sizes */
         @media (min-width: 640px) {
             .grid-container {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(1, minmax(0, 1fr));
             }
         }
 
         @media (min-width: 768px) {
             .grid-container {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(1, minmax(0, 1fr));
             }
         }
 
         @media (min-width: 1024px) {
             .grid-container {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
+
 }
+
 .container {
     display: flex;
     justify-content: center;
@@ -130,6 +136,9 @@ Tags: portfolio, photography, creative
     max-width: 1920px;
     height: 400px;
 }
+.bg-gray-100{
+    margin-top: 50px ;
+}
 .text-center{
     padding-top: 100px;
     z-index: 1200;
@@ -139,4 +148,7 @@ Tags: portfolio, photography, creative
 }
 .text-center p{
     color: dodgerblue;
+}
+.post-loop-container{
+    width: 600px;
 }
