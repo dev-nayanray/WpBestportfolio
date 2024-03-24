@@ -1,35 +1,21 @@
-<?php get_header(); ?>
+<!-- search.php -->
+<?php
+// Check if the search query parameter exists
+if (isset($_GET['q'])) {
+    // Retrieve and sanitize search query
+    $searchQuery = htmlspecialchars($_GET['q']);
 
-<div id="primary" class="content-area">
-    <main id="main" class="site-main">
+    // Perform search operation (replace this with your actual search logic)
+    // Example: fetching search results from a database
+    // Assume $searchResults is an array of search results
+    $searchResults = []; // Placeholder for search results
 
-        <header class="page-header">
-            <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'your-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-        </header><!-- .page-header -->
-
-        <?php if ( have_posts() ) : ?>
-            <div class="search-results">
-                <?php while ( have_posts() ) : the_post(); ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <header class="entry-header">
-                            <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                        </header><!-- .entry-header -->
-
-                        <div class="entry-summary">
-                            <?php the_excerpt(); ?>
-                        </div><!-- .entry-summary -->
-                    </article><!-- #post-## -->
-                <?php endwhile; ?>
-            </div><!-- .search-results -->
-
-            <?php the_posts_navigation(); ?>
-
-        <?php else : ?>
-            <p><?php esc_html_e( 'No results found.', 'your-theme' ); ?></p>
-        <?php endif; ?>
-
-    </main><!-- #main -->
-</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+    // Return search results in JSON format
+    echo json_encode($searchResults);
+} else {
+    // If search query parameter is missing, return an error message
+    // You can customize this error message based on your requirements
+    $error = ['error' => 'Missing search query parameter'];
+    echo json_encode($error);
+}
+?>
